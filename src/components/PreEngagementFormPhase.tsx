@@ -26,9 +26,9 @@ export const PreEngagementFormPhase = () => {
         try {
             const data = await sessionDataHandler.fetchAndStoreNewSession({
                 formData: {
-                    friendlyName: name,
-                    email,
-                    query
+                    friendlyName: 'franco',
+                    email: 'franco@ukuepa.com',
+                    query: "Hola"
                 }
             });
             dispatch(initSession({ token: data.token, conversationSid: data.conversationSid }));

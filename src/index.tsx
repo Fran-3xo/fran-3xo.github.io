@@ -10,7 +10,7 @@ import { ConfigState } from "./store/definitions";
 import { initLogger } from "./logger";
 
 const defaultConfig: ConfigState = {
-    serverUrl: "https://f8f3d96794cf.ngrok.app",
+    serverUrl: "http://localhost:3001",
     theme: {
         isLight: true
     },
