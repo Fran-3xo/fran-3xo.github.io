@@ -13,14 +13,15 @@ const app = express();
 const port = 3001;
 
 app.use(express.json());
-
 app.use(
-    cors({ allowedOrigins: true })
+    cors({
+        origins: allowedOrigins
+    })
 );
 app.listen(port, () => {
     console.log(`Twilio Webchat App server running on port ${port}`);
 });
 
-app.post("/initWebchat", initWebchatController);
-app.post("/refreshToken", refreshTokenController);
-app.post("/email", emailTranscriptController);
+app.post("/initWebchat", validateRequestOriginMiddleware, initWebchatController);
+app.post("/refreshToken", validateRequestOriginMiddleware, refreshTokenController);
+app.post("/email", validateRequestOriginMiddleware, emailTranscriptController);
